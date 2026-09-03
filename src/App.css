@@ -79,10 +79,12 @@ body,
 }
 
 body {
-  min-width: 900px;
+  min-width: 0;
   min-height: 100vh;
 
   background: var(--bg);
+
+  overflow-x: hidden;
 }
 
 button,
@@ -1457,17 +1459,670 @@ h3 {
   }
 }
 
+/* =========================================================
+   MOBILE
+========================================================= */
+
 @media (max-width: 700px) {
+
+  /* ---------------------------------------------------------
+     GLOBAL
+  --------------------------------------------------------- */
+
+  html,
+  body,
+  #root {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  body {
+    min-width: 0;
+    overflow-x: hidden;
+  }
+
+  /* ---------------------------------------------------------
+     APP LAYOUT
+  --------------------------------------------------------- */
+
+  .app {
+    width: 100%;
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow-x: hidden;
+  }
+
+  /* ---------------------------------------------------------
+     MOBILE NAVIGATION
+  --------------------------------------------------------- */
+
+  .sidebar {
+    width: 100%;
+    min-width: 0;
+    min-height: auto;
+
+    padding: 14px 14px 10px;
+
+    display: flex;
+    flex-direction: column;
+
+    background: #efeee9;
+
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
+
+    position: sticky;
+    top: 0;
+    z-index: 20;
+  }
+
+  .brand {
+    padding: 0 4px;
+    margin: 0 0 12px;
+
+    font-size: 18px;
+
+    gap: 9px;
+  }
+
+  .brand-icon {
+    width: 30px;
+    height: 30px;
+
+    border-radius: 8px;
+  }
+
+  .navigation {
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+
+    gap: 6px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    padding-bottom: 2px;
+
+    scrollbar-width: none;
+  }
+
+  .navigation::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav-item {
+    width: auto;
+    min-width: max-content;
+
+    padding: 9px 12px;
+
+    gap: 7px;
+
+    border-radius: 8px;
+
+    font-size: 12px;
+
+    white-space: nowrap;
+  }
+
+  .nav-item span {
+    width: auto;
+
+    font-size: 14px;
+  }
+
+  .nav-item.active {
+    box-shadow: none;
+
+    background: var(--accent-soft);
+  }
+
+  .sidebar-bottom {
+    margin-top: 7px;
+
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .lock-nav-item {
+    width: auto;
+
+    margin-top: 0;
+  }
+
+  /* ---------------------------------------------------------
+     MAIN CONTENT
+  --------------------------------------------------------- */
+
+  .main-content {
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+
+    padding: 28px 16px 40px;
+
+    overflow-x: hidden;
+  }
+
+  /* ---------------------------------------------------------
+     PAGE HEADER
+  --------------------------------------------------------- */
+
+  .page-header {
+    width: 100%;
+
+    align-items: flex-start;
+    gap: 16px;
+
+    margin-bottom: 26px;
+  }
+
+  .page-header > div {
+    min-width: 0;
+  }
+
+  .eyebrow {
+    margin-bottom: 6px;
+
+    font-size: 10px;
+    letter-spacing: 1.1px;
+  }
+
+  h1 {
+    font-size: 29px;
+
+    line-height: 1.15;
+
+    letter-spacing: -0.5px;
+  }
+
+  h2 {
+    font-size: 19px;
+  }
+
+  /* ---------------------------------------------------------
+     BUTTONS
+  --------------------------------------------------------- */
+
+  .primary-button {
+    min-height: 42px;
+
+    padding: 10px 14px;
+
+    flex-shrink: 0;
+
+    font-size: 12px;
+  }
+
+  .secondary-button,
+  .danger-button {
+    min-height: 42px;
+
+    padding: 10px 13px;
+
+    font-size: 12px;
+  }
+
+  /* ---------------------------------------------------------
+     DASHBOARD
+  --------------------------------------------------------- */
+
+  .dashboard-grid {
+    width: 100%;
+
+    grid-template-columns: 1fr;
+
+    gap: 12px;
+  }
+
+  .card {
+    width: 100%;
+    min-width: 0;
+    min-height: auto;
+
+    padding: 19px;
+
+    border-radius: 15px;
+  }
+
+  .card-header {
+    margin-bottom: 18px;
+  }
+
+  .task {
+    min-height: 42px;
+
+    gap: 10px;
+
+    font-size: 13px;
+  }
+
+  .checkbox {
+    width: 19px;
+    height: 19px;
+
+    flex-shrink: 0;
+  }
+
+  .journal-preview {
+    min-height: 85px;
+  }
+
+  .dashboard-entry-preview {
+    min-height: 85px;
+
+    min-width: 0;
+  }
+
+  .dashboard-entry-preview h3,
+  .dashboard-entry-preview p {
+    overflow-wrap: anywhere;
+  }
+
+  /* ---------------------------------------------------------
+     RECENT
+  --------------------------------------------------------- */
+
+  .recent-section {
+    margin-top: 30px;
+  }
+
+  .section-header {
+    align-items: center;
+
+    margin-bottom: 12px;
+  }
+
+  .recent-entry {
+    min-width: 0;
+
+    padding: 15px;
+
+    gap: 12px;
+  }
+
+  .recent-entry > div {
+    min-width: 0;
+  }
+
+  .recent-entry h3 {
+    overflow-wrap: anywhere;
+  }
+
+  .recent-entry p {
+    max-width: 100%;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .recent-entry > span {
+    margin-left: 8px;
+
+    flex-shrink: 0;
+  }
+
+  /* ---------------------------------------------------------
+     EMPTY STATES
+  --------------------------------------------------------- */
+
+  .empty-history {
+    padding: 36px 18px;
+  }
+
+  .empty-journal {
+    padding: 60px 20px;
+  }
+
+  .placeholder-page {
+    padding: 60px 20px;
+  }
+
+  /* ---------------------------------------------------------
+     JOURNAL LIST
+  --------------------------------------------------------- */
+
+  .journal-list {
+    width: 100%;
+
+    gap: 9px;
+  }
+
+  .journal-list-item {
+    width: 100%;
+    min-width: 0;
+
+    padding: 16px;
+
+    display: grid;
+
+    grid-template-columns: 1fr auto;
+
+    gap: 8px 12px;
+
+    border-radius: 13px;
+  }
+
+  .journal-list-date {
+    grid-column: 1 / -1;
+
+    padding-top: 0;
+
+    font-size: 11px;
+  }
+
+  .journal-list-content {
+    min-width: 0;
+  }
+
+  .journal-list-content h2 {
+    margin-bottom: 5px;
+
+    font-size: 16px;
+
+    overflow-wrap: anywhere;
+  }
+
+  .journal-list-content p {
+    font-size: 12px;
+    line-height: 1.55;
+
+    overflow-wrap: anywhere;
+  }
+
+  .entry-arrow {
+    align-self: center;
+  }
+
+  /* ---------------------------------------------------------
+     SEARCH
+  --------------------------------------------------------- */
+
+  .journal-search {
+    width: 100%;
+    max-width: none;
+    height: 46px;
+
+    margin-bottom: 18px;
+
+    padding: 0 12px;
+  }
+
+  .journal-search input {
+    min-width: 0;
+
+    font-size: 13px;
+  }
+
+  .search-icon {
+    margin-right: 8px;
+
+    font-size: 20px;
+  }
+
+  /* ---------------------------------------------------------
+     EDITOR
+  --------------------------------------------------------- */
+
+  .editor-page {
+    width: 100%;
+    min-width: 0;
+    min-height: auto;
+  }
+
+  .editor-header {
+    width: 100%;
+
+    align-items: center;
+
+    margin-bottom: 30px;
+
+    gap: 10px;
+  }
+
+  .back-button {
+    flex-shrink: 0;
+
+    font-size: 12px;
+  }
+
+  .editor-actions {
+    gap: 6px;
+
+    flex-shrink: 0;
+  }
+
+  .editor-actions .secondary-button,
+  .editor-actions .danger-button {
+    padding: 9px 10px;
+
+    font-size: 11px;
+  }
+
+  .editor-container {
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+  }
+
+  .title-input {
+    width: 100%;
+    min-width: 0;
+
+    margin-top: 10px;
+
+    font-size: 31px;
+
+    line-height: 1.15;
+
+    letter-spacing: -0.5px;
+  }
+
+  .editor-meta {
+    margin-top: 12px;
+
+    gap: 12px;
+  }
+
+  .date-field {
+    gap: 7px;
+
+    font-size: 11px;
+  }
+
+  .date-field input {
+    height: 34px;
+
+    max-width: 145px;
+
+    font-size: 11px;
+  }
+
+  .journal-editor {
+    width: 100%;
+    min-width: 0;
+    min-height: 380px;
+
+    margin-top: 30px;
+
+    font-size: 16px;
+    line-height: 1.8;
+  }
+
+  .editor-footer {
+    padding-top: 13px;
+
+    font-size: 10px;
+  }
+
+  /* ---------------------------------------------------------
+     TODO PAGE
+  --------------------------------------------------------- */
+
+  .task-add-card {
+    width: 100%;
+
+    padding: 16px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    gap: 10px;
+
+    margin-bottom: 24px;
+  }
+
+  .task-input {
+    width: 100%;
+    min-width: 0;
+
+    height: 44px;
+
+    font-size: 13px;
+  }
+
+  .task-add-card .primary-button {
+    width: 100%;
+  }
+
+  .todo-section {
+    margin-top: 28px;
+  }
+
+  .todo-item {
+    width: 100%;
+    min-width: 0;
+
+    min-height: 58px;
+
+    padding: 10px 11px 10px 14px;
+
+    gap: 10px;
+  }
+
+  .todo-item > * {
+    min-width: 0;
+  }
+
+  .todo-item .task {
+    flex: 1;
+  }
+
+  .delete-task-button {
+    min-width: 40px;
+    min-height: 36px;
+
+    padding: 7px 8px;
+  }
+
+  /* ---------------------------------------------------------
+     SECURITY SCREEN
+  --------------------------------------------------------- */
+
   .security-screen {
-    padding: 24px 16px;
+    width: 100%;
+    min-width: 0;
+    min-height: 100vh;
+
+    padding: 20px 14px;
   }
 
   .security-card {
-    padding: 32px 26px;
+    width: 100%;
+    max-width: 450px;
+
+    padding: 30px 22px;
+
+    border-radius: 16px;
+  }
+
+  .security-brand {
+    margin-bottom: 32px;
+
+    font-size: 19px;
+  }
+
+  .security-brand .brand-icon {
+    width: 32px;
+    height: 32px;
   }
 
   .security-card h1 {
     font-size: 27px;
+
+    line-height: 1.18;
+  }
+
+  .security-description {
+    margin: 12px 0 25px;
+
+    font-size: 12px;
+    line-height: 1.65;
+  }
+
+  .security-form {
+    gap: 15px;
+  }
+
+  .security-form input {
+    height: 46px;
+
+    font-size: 13px;
+  }
+
+  .security-submit {
+    height: 46px;
+  }
+
+  .security-note {
+    font-size: 10px;
+  }
+}
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 380px) {
+
+  .main-content {
+    padding-left: 13px;
+    padding-right: 13px;
+  }
+
+  .sidebar {
+    padding-left: 11px;
+    padding-right: 11px;
+  }
+
+  .page-header {
+    gap: 10px;
+  }
+
+  h1 {
+    font-size: 26px;
+  }
+
+  .primary-button {
+    padding-left: 11px;
+    padding-right: 11px;
+  }
+
+  .title-input {
+    font-size: 28px;
+  }
+
+  .security-card {
+    padding: 27px 19px;
   }
 }
 
