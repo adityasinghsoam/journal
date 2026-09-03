@@ -43,6 +43,16 @@ type SecurityState =
   | "error";
 
 function App() {
+  /*
+   * TEMPORARY PERSONAL LETTER
+   *
+   * This is intentionally hardcoded for the current
+   * recipient. Remove this state and the letter return
+   * block below when you no longer want the letter.
+   */
+  const [showLetter, setShowLetter] =
+    useState(true);
+
   const [page, setPage] =
     useState<Page>("dashboard");
 
@@ -551,6 +561,82 @@ function App() {
   function goToSettings() {
     closeEditor();
     setPage("settings");
+  }
+
+  /*
+   * TEMPORARY PERSONAL LETTER
+   *
+   * This appears before the normal Journal/security flow.
+   * Clicking Continue reveals the existing application.
+   */
+  if (showLetter) {
+    return (
+      <div className="letter-screen">
+        <article className="letter-paper">
+          <div className="letter-top">
+            <span>03 September 2026</span>
+          </div>
+
+          <div className="letter-content">
+            <p>
+              Hi HELLO NAMASTE (WITH THE INTENTION OF PATA NHI KYA)
+            </p>
+
+            <p>
+              Again Hi HELOOOOOOOOOO DEVI JI / MOHOTARM / ANGEL
+            </p>
+
+            <p>
+              Honestly i have no idea why am i doing this but just bcz i felt
+              i should do it so i am doing it
+            </p>
+
+            <p>
+              That day i forgot the letter so uss cheez ka guilt mujhe aaj tak
+              hai isiliye i really wanted to do something for you SO HERE IT IS
+            </p>
+
+            <p>
+              Thank you so much LIKE REALLY REALLY THANKS A LOT FOR THAT i cant
+              get over of that day bcz i still randonly laugh while thinking
+              about that day because that day really made me feel alive and
+              again i felt what life is so again THANK YOU VERY MUCH
+            </p>
+
+            <p>
+              Thank you for that tin box i really really love it honestly not
+              even kidding vo bahut he khubsurat hai or bahut he payara hai
+              mere liye i really really love it so thank you for that as well
+            </p>
+
+            <p>
+              Also again i want to say that you really look like A BEAUTIFUL
+              ANGEL LIKE OMG LIKE HONESTLY I REALLY LOVE THE WAY YOU CARRY
+              YOURSELF ITS SOOOOO BEAUTIFUL (IDK WHY AM I BLUSHING WHILE TYPING
+              THIS REALLY SORRY LIKE GENUINELY SORRY 😭😭😭) BUT YOU THE AURA AND
+              VIBE YOU CARRY IS SO POSITIVE AND THEY WAY YOU LOOK IS JUST
+              OMG!!!!!!!!!!!!!!! SO PRETTY
+            </p>
+
+            <p>
+              BAS MERA HO GAYA AGAIN SORRY 😭😭😭😭
+            </p>
+          </div>
+
+          <div className="letter-signature">
+            <span>— Adi</span>
+          </div>
+
+          <button
+            className="letter-continue"
+            type="button"
+            onClick={() => setShowLetter(false)}
+          >
+            Continue to Journal →
+          </button>
+        </article>
+      </div>
+    );
   }
 
   /*

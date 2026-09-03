@@ -2126,6 +2126,254 @@ h3 {
   }
 }
 
+
+/* =========================================================
+   TEMPORARY PERSONAL LETTER
+========================================================= */
+
+.letter-screen {
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 50px 24px;
+
+  background:
+    radial-gradient(
+      circle at 50% -10%,
+      rgba(113, 139, 120, 0.10),
+      transparent 45%
+    ),
+    var(--bg);
+
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.letter-paper {
+  width: 100%;
+  max-width: 760px;
+
+  position: relative;
+
+  padding: 62px 72px 54px;
+
+  background: #fffdf8;
+
+  border: 1px solid #e8e3d7;
+  border-radius: 2px;
+
+  box-shadow:
+    0 2px 4px rgba(35, 38, 35, 0.03),
+    0 18px 55px rgba(35, 38, 35, 0.09);
+
+  color: #343633;
+
+  transform: rotate(-0.15deg);
+
+  animation: letter-enter 0.55s ease-out;
+}
+
+.letter-paper::before {
+  content: "";
+
+  position: absolute;
+
+  top: 24px;
+  bottom: 24px;
+  left: 30px;
+
+  width: 1px;
+
+  background: rgba(181, 111, 107, 0.16);
+
+  pointer-events: none;
+}
+
+.letter-top {
+  margin-bottom: 38px;
+
+  color: var(--text-tertiary);
+
+  font-family: var(--font-sans);
+
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.1px;
+
+  text-transform: uppercase;
+}
+
+.letter-content {
+  font-family: var(--font-serif);
+
+  font-size: 17px;
+  line-height: 1.9;
+}
+
+.letter-content p {
+  margin: 0 0 22px;
+}
+
+.letter-content p:first-child {
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+.letter-content p:last-child {
+  margin-top: 30px;
+  margin-bottom: 0;
+
+  font-size: 18px;
+  font-style: italic;
+}
+
+.letter-signature {
+  margin-top: 38px;
+
+  color: var(--text);
+
+  font-family: var(--font-serif);
+
+  font-size: 19px;
+  font-style: italic;
+}
+
+.letter-continue {
+  display: block;
+
+  margin: 42px 0 0 auto;
+
+  padding: 11px 17px;
+
+  border: 1px solid var(--border-hover);
+  border-radius: var(--radius-sm);
+
+  background: transparent;
+
+  color: var(--accent-strong);
+
+  font-size: 12px;
+  font-weight: 600;
+
+  box-shadow: none;
+}
+
+.letter-continue:hover {
+  background: var(--accent-soft);
+
+  border-color: var(--accent);
+
+  transform: translateX(2px);
+}
+
+@keyframes letter-enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px) rotate(-0.15deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(-0.15deg);
+  }
+}
+
+/* =========================================================
+   PERSONAL LETTER — MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+  .letter-screen {
+    min-height: 100svh;
+
+    align-items: flex-start;
+
+    padding: 18px 13px 28px;
+  }
+
+  .letter-paper {
+    max-width: none;
+
+    padding: 38px 25px 32px;
+
+    transform: none;
+  }
+
+  .letter-paper::before {
+    top: 18px;
+    bottom: 18px;
+    left: 14px;
+  }
+
+  .letter-top {
+    margin-bottom: 27px;
+
+    font-size: 9px;
+  }
+
+  .letter-content {
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+  .letter-content p {
+    margin-bottom: 19px;
+  }
+
+  .letter-content p:first-child {
+    font-size: 18px;
+  }
+
+  .letter-content p:last-child {
+    margin-top: 28px;
+
+    font-size: 16px;
+  }
+
+  .letter-signature {
+    margin-top: 30px;
+
+    font-size: 18px;
+  }
+
+  .letter-continue {
+    width: 100%;
+
+    min-height: 46px;
+
+    margin-top: 32px;
+  }
+}
+
+/* =========================================================
+   PERSONAL LETTER — VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 380px) {
+  .letter-screen {
+    padding-left: 9px;
+    padding-right: 9px;
+  }
+
+  .letter-paper {
+    padding-left: 22px;
+    padding-right: 20px;
+  }
+
+  .letter-content {
+    font-size: 14px;
+  }
+
+  .letter-content p:first-child {
+    font-size: 17px;
+  }
+}
+
 /* =========================================================
    ACCESSIBILITY
 ========================================================= */
