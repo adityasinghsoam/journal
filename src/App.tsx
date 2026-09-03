@@ -579,7 +579,7 @@ function App() {
 
           <div className="letter-content">
             <p>
-              Hi HELLO NAMASTE (WITH THE INTENTION OF PATA NHI KYA)
+              Hi HELLO NAMASTE DIVYANSHI JI (WITH THE INTENTION OF PATA NHI KYA)
             </p>
 
             <p>
